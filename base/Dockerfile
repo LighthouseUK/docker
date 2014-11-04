@@ -16,5 +16,6 @@ RUN wget -O ~/downloads/appengine.zip https://storage.googleapis.com/appengine-s
 # Extract it
 RUN unzip ~/downloads/appengine.zip -d /usr/local
 
-EXPOSE 8080
-EXPOSE 8001
+ENV GAE_DEV_SERVER /usr/local/google_appengine/dev_appserver.py
+
+EXPOSE 8080 8000
