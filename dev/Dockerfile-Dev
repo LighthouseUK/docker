@@ -1,0 +1,15 @@
+# Docker: Lighthouse GAE Python Dev Server
+
+FROM lighthouseuk/gaepy:1.9.14
+MAINTAINER Lighthouse UK <foss@lighthouseuk.net>
+
+RUN mkdir -p /app/src
+ADD https://bitbucket.org/lighthouseuk/dev-dotfiles/src/d0c62ff0472225fafe124faa41e032b4c2e91998/bootstrap_gae.sh?at=master /app
+
+RUN export GAE_APP_PATH=/app
+
+#This block should be moved to a separate Dockerfile but we are just testing at this stage
+ENTRYPOINT ["/app/bootstrap_gae.sh"]
+
+# If we expand the functionality of the bootstrap script later we can pass default commands with CMD
+# CMD ["-h"] 
