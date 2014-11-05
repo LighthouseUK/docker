@@ -1,11 +1,19 @@
 # Docker: GAE Python Dev Server
 
-FROM python:2.7.8
+# FROM python:2.7.8
+FROM google/debian:wheezy
 MAINTAINER Lighthouse UK <foss@lighthouseuk.net>
 
-RUN apt-get update && apt-get install --fix-missing -y \
+RUN apt-get update && apt-get install --fix-missing -y -q \
+	build-essential \
+	python2.7 \
+	python2.7-dev \
+	python-pip \
+	git \
 	unzip \
 	wget
+
+RUN pip install -U pip
 
 # Google App Engine Python SDK
 
