@@ -1,6 +1,7 @@
 # Docker: Lighthouse GAE Python Dev Server
-# docker run --rm -i -t -p 8080 -p 8000 -v /c/Users/matthewbadger/Projects/demo_app/demo_app:/home/app/src lighthouseuk/gaepy-dev-server:1.9.14
-# docker run --rm -i -t -p 8080 -p 8000 -v /c/Users/matthewbadger/Projects/demo_app/demo_app:/home/app/src --entrypoint /bin/bash lighthouseuk/gaepy-dev-server:1.9.14
+# docker run --rm -i -t -p 127.0.0.1:8080:8080 -p 127.0.0.1:8000:8000 -v /c/Users/matthewbadger/Projects/demo_app/demo_app:/home/app/src lighthouseuk/gaepy-dev-server:1.9.14
+# docker run --rm -p -i -t 8080:8080 -p 8000:8000 -v /c/Users/matthewbadger/Projects/demo_app/demo_app:/home/app/src lighthouseuk/gaepy-dev-server:1.9.14
+# docker run --rm -i -t -p 127.0.0.1:8080:8080 -p 127.0.0.1:8000:8000 -v /c/Users/matthewbadger/Projects/demo_app/demo_app:/home/app/src --entrypoint /bin/bash lighthouseuk/gaepy-dev-server:1.9.14
 
 FROM lighthouseuk/gaepy:1.9.14
 MAINTAINER Lighthouse UK <foss@lighthouseuk.net>
