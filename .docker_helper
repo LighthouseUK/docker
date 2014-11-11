@@ -1,0 +1,19 @@
+# This file is designed to be used when running boot2docker. If you would like to modify for use directly in docker then simply remove the boot2docker related lines.
+
+
+# Most of the time I need to boot docker and perform some tasks so it's useful to combine the 'up' and 'ssh' commands.
+alias dup="boot2docker up && boot2docker ssh"
+alias dssh="boot2docker ssh"
+alias dex="boot2docker stop"
+
+# This function can be used on a clean install of boot2docker to prepare a network mounted volume. The volume can then be mounted
+# into containers which allows developers to live edit source code etc without having to restart the container/rebuild the image.
+# THIS SHOULD NOT BE USED IN PRODUCTION! - make a dedicated data volume
+function lhinit {
+	boot2docker up && boot2docker ssh
+	# Create a new data volume with the name 'lh-projects' and a mount point of '/src'
+	docker run -v /src --restart=always --name lh-projects busybox true
+	# Start a samba server for the above data volume.
+	docker run --rm -v /usr/local/bin/docker:/docker -v /var/run/docker.sock:/docker.sock svendowideit/samba lh-projects
+	# Once this has completed you are able to mount the data volume by passing '--volumes-from lh-projects' as a flag to 'docker run'
+}
