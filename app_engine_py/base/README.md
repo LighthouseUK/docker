@@ -9,7 +9,7 @@ Designed to be used as a base image for setting up custom developer environments
 ###This image:
  - Downloads the Google App Engine SDK from
    [https://storage.googleapis.com/appengine-sdks/][1]
- - Exposes ports 8080, 8000
+ - Exposes ports `8080`, `8000`
  - Disabled dev_appserver update check
 
 ###To run this image:
