@@ -3,9 +3,12 @@
 
 # Create the data volume and share it using the samba container. (Only need to do this once)
 # Best to keep the path short as I encountered problems with samba when using deep paths e.g. /some/path/to/mount/ would break
-# Means you need to create a symlink 
-# docker run -v /src --name lh-projects busybox true
+# Projects should be checked out and worked on using this network mount. This enables the live reloading features of various servers
+# as the file system gets notified of changes, unlike host mounts via virtualbox.
+
+# docker run -v /src --restart=always --name lh-projects busybox true
 # docker run --rm -v /usr/local/bin/docker:/docker -v /var/run/docker.sock:/docker.sock svendowideit/samba lh-projects
+# These containers will be automatically run when docker boots (--restart=always flag). Change to your liking.
 # The container is now available from the boot2docker host @ [BOOT2DOCKER IP]/src (change the path as you like using the first command)
 
 # docker start [CONTAINER ID]
