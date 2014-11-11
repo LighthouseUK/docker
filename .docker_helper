@@ -17,3 +17,8 @@ function lhinit {
 	docker run --rm -v /usr/local/bin/docker:/docker -v /var/run/docker.sock:/docker.sock svendowideit/samba lh-projects
 	# Once this has completed you are able to mount the data volume by passing '--volumes-from lh-projects' as a flag to 'docker run'
 }
+
+# This is a really contrived example of how to setup a boot shortcut for a given project. Runs the GAE dev server and shows the console output.
+function gaeup {
+	boot2docker ssh 'docker run --rm -ti -p 8080 -p 8000 --name gaepy_test --volumes-from lh-projects lighthouseuk/gaepy-dev-server:1.9.14 && echo docker port gaepy_test'
+}
