@@ -9,7 +9,7 @@ The `.docker_helper` script may be useful to people using boot2docker. It contai
 ##/app_engine_py
 `app_engine_py` contains some tools for working with the Google App Engine SDK within docker. The `bootstrap_gae.sh` script is used to automate the configuration and init of the GAE dev server. It is still under active development so please feedback any issues.
 
-#Quick tutorial for new dev on Windows of Mac
+#Quick tutorial for new devs on Windows or Mac
 ##Install the latest version of boot2docker
  - Download [boot2docker][1] and install ([Windows instructions][2], [Mac OS X instructions][3])
  - If the installation left you with a docker shell, exit out of it by typing `exit`, otherwise skip this step
