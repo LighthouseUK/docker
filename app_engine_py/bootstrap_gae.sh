@@ -32,10 +32,9 @@ function get_configs {
 	fi
 }
 
-# TODO: Modify this to take a command line arg for project name/mount point path. Also use the CONFIG_PATH variable
 function link_mounted_storage {
 	if [ ! -h "$SRC_DIR" ]; then
-		ln -s /src/demo_app "$SRC_DIR"
+		ln -s "/src/$1" "$SRC_DIR"
 	fi
 }
 
@@ -44,8 +43,10 @@ function install_requirements {
 }
 
 function bootstrap_gae {
-	link_mounted_storage
+	link_mounted_storage $1
 	
+	shift
+
 	install_requirements
 
 	yaml_files=$(get_configs)
