@@ -26,6 +26,13 @@ By using a mounted volume that is shared across the network we get the benefit o
 
 *Note: the bootstrap script assumes you have a volume with a mount point of `/src`. It will create a symlink from `/src/demo_app` to `/home/app/src`.*
 
+###Update 2015/03/25:
+For anyone having issues getting the bash script to run:
+ - `docker run --rm -ti -P --volumes-from lh-projects --name=demo_app --entrypoint=/bin/bash lighthouseuk/gaepy-dev-server:1.9.18`
+ - `bash /home/app/bootstrap_gae.sh [NAME OF SRC DIR FROM MOUNTED VOLUME] --host=0.0.0.0`
+
+There is a bug in the DockerFile which we will aim to fix ASAP.
+
 For anyone that wants to see the Dockerfiles used, we have a [repo][1]. This particular image was built from the Dockerfile in `app_engine_py/dev`.
 
 
