@@ -26,7 +26,7 @@ ENV GAE_APP_ROOT /home/app
 ENV GAE_APP_PATH /home/app/src
 
 RUN mkdir -p /home/app/
-ADD https://bitbucket.org/lighthouseuk/dev-dotfiles/raw/2d116c3129296b5799bccd66545fbebd3f9fdfb9/bootstrap_gae.sh /home/app/
+ADD https://bitbucket.org/lighthouseuk/dev-dotfiles/raw/ea27e4887cf90e6571c9a2594560cf64c820d72c/bootstrap_gae.sh /home/app/
 RUN chmod +x /home/app/bootstrap_gae.sh
 
 # ONBUILD RUN virtualenv /env && [ -f "/home/app/src/requirements.txt" ] && /env/bin/pip install -r "/home/app/src/requirements.txt"

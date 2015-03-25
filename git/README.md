@@ -1,0 +1,1 @@
+##Git container for performing git ops on mounted drives, rather than via the network

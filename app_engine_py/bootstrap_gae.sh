@@ -17,10 +17,17 @@ function get_configs {
 		if [[ "${yaml_files[$i]}" == "${SRC_DIR}/index.yaml" ]]; then
 			index_index=$i
 		fi
+		if [[ "${yaml_files[$i]}" == "${SRC_DIR}/mapreduce.yaml" ]]; then
+			mapreduce_index=$i
+		fi
 	done
 
 	if [ -n "$index_index" ]; then
 		unset yaml_files[index_index]
+	fi
+
+	if [ -n "$mapreduce_index" ]; then
+		unset yaml_files[mapreduce_index]
 	fi
 
 	if [ -n "$dispatch_index" ]; then
@@ -39,7 +46,7 @@ function link_mounted_storage {
 }
 
 function install_requirements {
-	[ -f "$SRC_DIR/requirements.txt" ] && pip install -r "$SRC_DIR/requirements.txt"
+	[ -f "$SRC_DIR/requirements.txt" ] && pip install -r -U "$SRC_DIR/requirements.txt"
 }
 
 function bootstrap_gae {
