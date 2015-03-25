@@ -17,6 +17,9 @@ function get_configs {
 		if [[ "${yaml_files[$i]}" == "${SRC_DIR}/index.yaml" ]]; then
 			index_index=$i
 		fi
+		if [[ "${yaml_files[$i]}" == "${SRC_DIR}/queue.yaml" ]]; then
+			index_index=$i
+		fi
 		if [[ "${yaml_files[$i]}" == "${SRC_DIR}/mapreduce.yaml" ]]; then
 			mapreduce_index=$i
 		fi

@@ -1,5 +1,5 @@
 # Docker: Lighthouse GAE Python Dev Server
-# docker run --rm -i -t -p 127.0.0.1:8080:8080 -p 127.0.0.1:8000:8000 -v /c/Users/matthewbadger/Projects/demo_app/demo_app:/home/app/src lighthouseuk/gaepy-dev-server:1.9.14
+# docker run --rm -i -t -p 127.0.0.1:8080:8080 -p 127.0.0.1:8000:8000 -v /c/Users/matthewbadger/Projects/demo_app/demo_app:/home/app/src lighthouseuk/gaepy-dev-server:1.9.18
 
 # Create the data volume and share it using the samba container. (Only need to do this once)
 # Best to keep the path short as I encountered problems with samba when using deep paths e.g. /some/path/to/mount/ would break
@@ -17,7 +17,7 @@
 
 # docker run --rm -ti -p 8080 -p 8000 --volumes-from lh-projects --entrypoint /bin/bash lighthouseuk/gaepy-dev-server:1.9.14
 
-FROM lighthouseuk/gaepy:1.9.14
+FROM lighthouseuk/gaepy:1.9.18
 MAINTAINER Lighthouse UK <foss@lighthouseuk.net>
 
 # Apparently you can't directly use shell variables like this within a dockerfile :(

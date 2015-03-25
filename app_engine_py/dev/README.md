@@ -18,7 +18,7 @@ By using a mounted volume that is shared across the network we get the benefit o
 
  - `docker run -v /src --restart=always --name lh-projects busybox true`
  - `docker run --rm -v /usr/local/bin/docker:/docker -v /var/run/docker.sock:/docker.sock svendowideit/samba lh-projects`
- - `docker run --rm -ti -p 8080 -p 8000 --volumes-from lh-projects lighthouseuk/gaepy-dev-server:1.9.14`
+ - `docker run --rm -ti -p 8080 -p 8000 --volumes-from lh-projects lighthouseuk/gaepy-dev-server:1.9.18`
 
 *Note: you can customise the above to your liking - the mount points and container names are what we use internally.*
 
